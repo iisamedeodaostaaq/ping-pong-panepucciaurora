@@ -3,6 +3,7 @@ ypos=0               #coordinata y della pallina
 xVers=+1             #direzione x della pallina
 yVers=+1             #direzione y della pallina
 rag=50               #raggio della pallina
+## Prof. Si tratta del diametro e non del raggio
 xrac=0               #coordinata x racchetta 1
 xrac2=0              #coordinata x racchetta 2
 yrac2=0              #coordinata y racchetta 2
@@ -25,6 +26,7 @@ def draw():
     background(255)
     
     #MOVIMENTO PALLINA
+## Prof. Errore di Indentazione
         if xpos >width or xpos<0:             #se tocca i margini laterali  
         xVers=xVers*(-1)                  #cambia verso della x, la y resta invariata
         a=random(0,255)           
@@ -35,6 +37,7 @@ def draw():
 
 
     if ypos >height-25 or ypos<+25:      #se tocca il margine superiore o inferiore
+## Prof. Piuttosto che 25 avrei usato la variabile che lo contiene 
         yVers=yVers*(-1)                 #cambia verso la y, la x resta invariata
         a=random(0,255)
         b=random(0,255)
@@ -56,7 +59,9 @@ def draw():
         
     if ypos > height-(25+rag/2) and xrac < xpos < xrac+100:      #se tocca la racchetta 1
         yVers=yVers*(-1)                                         #cambia il verso della pallina
-    
+## Prof. Questa gestione della collisione con i bordi crea un fastidioso salto all'indietro. 
+## Prof. Semplicemente se tocca i lati non sposto la racchetta e va gestita nella gestione dei tasti
+
     if xrac > (width - 100):             #se la racchetta raggiunge il margine destro
         xrac=xrac-20                     #torna indietro in modo da non uscire dal foglio
         
@@ -72,7 +77,10 @@ def draw():
         
     if ypos < 0+(25+rag/2) and xrac2 < xpos < xrac2+100:        #se tocca la racchetta 2
         yVers=yVers*(-1)                                        #cambia il verso della pallina
-    
+   
+## Prof. Questa gestione della collisione con i bordi crea un fastidioso salto all'indietro. 
+## Prof. Semplicemente se tocca i lati non sposto la racchetta e va gestita nella gestione dei tasti
+
     if xrac2 > (width - 100):            #se la racchetta raggiunge il margine destro
         xrac2=xrac2-20                     #torna indietro in modo da non uscire dal foglio
         
